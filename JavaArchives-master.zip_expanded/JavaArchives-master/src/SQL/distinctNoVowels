@@ -1,0 +1,78 @@
+Query the list of CITY names from STATION that do not 
+start with vowels. Your result cannot contain 
+duplicates.
+
+Input Format
+
+The STATION table is described as follows:
+
+TABEL __Station__
+Field - Type
+ID    - VARCHAR2(21)
+STATE - VARCHAR(2)
+LAT_L - NUMBER
+LONG_W  - LONG_W
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+SELECT DISTINCT CITY 
+FROM STATION 
+WHERE CITY REGEXP '^[^aeiou]';
+
+select DISTINCT city 
+from STATION 
+where city 
+NOT REGEXP '[aeiou]$' 
+
+
+//NOT//NOT, but both work
+Putting a ^ inside the closed bracket means something 
+completely different than putting it outside the 
+brackets. Putting it inside the brackets makes it 
+match all characters EXCEPT the ones inside the bracket. 
+So instead of writing [bcdfghjklmnpqrstvwxyz], 
+we can write [^aeiou]
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+SELECT DISTINCT CITY 
+FROM STATION 
+WHERE LOWER(SUBSTR(CITY,0,1)) 
+NOT IN ('a','e','i','o','u');
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+**WHEN IT"S AT THE END**
+
+select DISTINCT city from STATION where city 
+NOT REGEXP '[aeiou]$' 
+
+**WHEN IT"S OR BOTH**
+
+select distinct CITY 
+from STATION 
+where CITY 
+not regexp '^[auoie].*[aouie]$' 
+order by CITY;
+
+select distinct CITY 
+from STATION 
+where CITY 
+not regexp '^[aeiou]' 
+OR CITY 
+not regexp '[aeiou]$' 
+order by CITY;
+
+**CHANGE OR TO AND*** FRONT AND BACK NOT AEIOU
+
+select distinct CITY 
+select distinct CITY 
+from STATION
+where CITY
+not REGEXP '^[aeiou]'
+AND CITY 
+not REGEXP '[aeiou]$'
+ORDER BY CITY;
+
+
+
+
+

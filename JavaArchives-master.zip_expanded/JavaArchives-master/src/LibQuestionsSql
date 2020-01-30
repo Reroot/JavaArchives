@@ -1,0 +1,74 @@
+Retrieve the required information using SQL language.
+
+Use the functions in the below URL for reference:
+
+http://dev.mysql.com/doc/refman/5.5/en/functions.html
+
+
+How many copies of the book titled The Lost Tribe are owned by the library branch whose name is "Sharpstown"?
+
+SELECT noOfCopies
+FROM tbl_book_copies
+NATURAL JOIN tbl_library_branch
+NATURAL JOIN tbl_book
+WHERE branchName = "Sharpstown" AND title = "The Lost Tribe";
+
+
+How many copies of the book titled The Lost Tribe are owned by each library branch?
+
+SELECT branchName, noOfCopies
+FROM tbl_book_copies
+NATURAL JOIN tbl_library_branch
+NATURAL JOIN tbl_book
+WHERE title = "The Lost Tribe";
+GROUP BY branchName;
+
+
+Retrieve the names of all borrowers who do not have any books checked out .
+
+SELECT name
+FROM tbl_borrower
+WHERE name not in (
+	SELECT name
+FROM tbl_borrower
+NATURAL JOIN tbl_book_loans
+);
+
+
+For each book that is loaned out from the "Sharpstown" branch and whose DueDate is today, retrieve the book title, the borrower's name, and the borrower's address.
+
+SELECT title, name, address
+FROM tbl_book_loans
+NATURAL JOIN tbl_library_branch
+NATURAL JOIN tbl_borrower
+NATURAL JOIN tbl_book
+WHERE branchName = "Sharpstown" AND DATEDIFF(dueDate, CURDATE()) = 0;
+
+
+For each library branch, retrieve the branch name and the total number of books loaned out from that branch.
+
+SELECT branchName, COUNT(*)
+FROM tbl_book_loans
+NATURAL JOIN tbl_library_branch
+GROUP BY branchId;
+
+
+Retrieve the names, addresses, and number of books checked out for all borrowers who have more than five books checked out. 
+
+SELECT name, address, COUNT(*)
+FROM tbl_book_loans
+NATURAL JOIN tbl_borrower
+WHERE dateIn = NULL
+GROUP BY cardNo
+HAVING COUNT(*) > 5;
+
+
+ For each book authored (or co-authored) by "Stephen King", retrieve the title and the number of copies owned by the library branch whose name is "Central"
+
+SELECT title, noOfCopies
+FROM tbl_book_copies
+NATURAL JOIN tbl_library_branch
+NATURAL JOIN tbl_book_authors
+NATURAL JOIN tbl_author
+NATURAL JOIN tbl_book
+WHERE authorName = "Stephen King" AND branchName = "Central";
