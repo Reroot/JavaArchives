@@ -14,5 +14,6 @@ public class ValueOf {
 		// representing the specified string 
 		System.out.println("Integer Value = " + 
 							Integer.valueOf(str)); 
+		//testing
 	} 
 } 
