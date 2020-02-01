@@ -97,7 +97,6 @@ class Game {
     void decideWinner() {
         displayPlayerChips();
         Player winner = player1.chips % 2 == 0 ? player1 : player2;
-
         System.out.println(winner.name + " wins!");
     }
 
