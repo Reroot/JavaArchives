@@ -3,7 +3,7 @@ package Serialization;
 //Java code for serialization and deserialization 
 //of a Java object 
 
-//remeber the purpose of serialization is 
+//Remember the purpose of serialization is 
 //Advantages of Serialization
 //1. To save/persist state of an object.
 //2. To travel an object across a network.

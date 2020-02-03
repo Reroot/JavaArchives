@@ -70,22 +70,22 @@ public class Lambdas {
                 return 0;
             }
         });
-        System.out.println(items);
-        System.out.println("Shortest to longest");
-        //items.sort(new SortShortestToLongest());
-        System.out.println(items);
-
-        System.out.println("Longest to shortest");
-        items.sort(new SortLongestToShortest());
-        System.out.println(items);
-
-        System.out.println("Alphabetically by first letter only");
-        items.sort(new SortAlphabeticallyByFirstLetter());
-        System.out.println(items);
-
-        System.out.println("Strings beginning with 'e' first, everything else next");
-        items.sort(new SortBeginsWithEFirst());
-        System.out.println(items);
+//        System.out.println(items);
+//        System.out.println("Shortest to longest");
+//        items.sort(SortShortestToLongest());
+//        System.out.println(items);
+//
+//        System.out.println("Longest to shortest");
+//        items.sort(()=> {new SortLongestToShortest()};);
+//        System.out.println(items);
+//
+//        System.out.println("Alphabetically by first letter only");
+//        items.sort(new SortAlphabeticallyByFirstLetter());
+//        System.out.println(items);
+//
+//        System.out.println("Strings beginning with 'e' first, everything else next");
+//        items.sort(new SortBeginsWithEFirst());
+//        System.out.println(items);
     }
 
     public static String question2(List<Integer> list) {

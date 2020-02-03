@@ -4,7 +4,7 @@ import java.io.File;
 
 public class GetAllFilesInDirectory {
 	public static void main(String[] args) {
-		String filePath = "./src/One";
+		String filePath = "./src";
 		if (args.length > 0) {
 			filePath = args[0];
 		}
